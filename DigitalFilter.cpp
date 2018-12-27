@@ -28,7 +28,7 @@ explanation
 double IIR_4::get_y()
 {
 	/********************
-	Is_move_aveの設定はコンストラクタで設定済み
+	Is_LastBlockの設定はコンストラクタで設定済み
 	********************/
 	return iir2_1.get_y();
 }
@@ -52,8 +52,8 @@ double IIR_2::x_in(double _x)
 	********************/
 	/********************
 	********************/
-	if(Is_move_ave)	last_y = (1 - Gui_Global->DigitalFilter__k_ave) * last_y + Gui_Global->DigitalFilter__k_ave * abs(y[0]);
-	else			last_y = y[0];
+	if(Is_LastBlock)	last_y = (1 - Gui_Global->DigitalFilter__k_ave) * last_y + Gui_Global->DigitalFilter__k_ave * abs(y[0]);
+	else				last_y = y[0];
 	
 	return last_y;
 }
@@ -84,8 +84,8 @@ double IIR_1::x_in(double _x)
 	
 	/********************
 	********************/
-	if(Is_move_ave)	last_y = (1 - Gui_Global->DigitalFilter__k_ave) * last_y + Gui_Global->DigitalFilter__k_ave * abs(y[0]);
-	else			last_y = y[0];
+	if(Is_LastBlock)	last_y = (1 - Gui_Global->DigitalFilter__k_ave) * last_y + Gui_Global->DigitalFilter__k_ave * abs(y[0]);
+	else				last_y = y[0];
 	
 	return last_y;
 }
